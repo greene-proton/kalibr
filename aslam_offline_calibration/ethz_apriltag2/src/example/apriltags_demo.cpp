@@ -59,6 +59,9 @@ const string intro = "\n"
 // OpenCV library for easy access to USB camera and drawing of images
 // on screen
 #include "opencv2/opencv.hpp"
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui_c.h>
 
 // April tags detector and various families that can be selected by command line option
 #include "apriltags/TagDetector.h"
@@ -302,12 +305,12 @@ public:
       cerr << "ERROR: Can't find video device " << m_deviceId << "\n";
       exit(1);
     }
-    m_cap.set(CV_CAP_PROP_FRAME_WIDTH, m_width);
-    m_cap.set(CV_CAP_PROP_FRAME_HEIGHT, m_height);
+    m_cap.set(cv::CAP_PROP_FRAME_WIDTH, m_width);
+    m_cap.set(cv::CAP_PROP_FRAME_HEIGHT, m_height);
     cout << "Camera successfully opened (ignore error messages above...)" << endl;
     cout << "Actual resolution: "
-         << m_cap.get(CV_CAP_PROP_FRAME_WIDTH) << "x"
-         << m_cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
+         << m_cap.get(cv::CAP_PROP_FRAME_WIDTH) << "x"
+         << m_cap.get(cv::CAP_PROP_FRAME_HEIGHT) << endl;
 
     // prepare window for drawing the camera images
     if (m_draw) {

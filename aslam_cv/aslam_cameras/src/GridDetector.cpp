@@ -4,6 +4,7 @@
 #include <Eigen/Core>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <sm/logging.hpp>
 #include <aslam/cameras/GridDetector.hpp>

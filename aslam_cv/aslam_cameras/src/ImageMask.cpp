@@ -3,6 +3,8 @@
 #include <sm/PropertyTree.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <sm/serialization_macros.hpp>
+#include <opencv2/highgui/highgui_c.h>
+#include <opencv2/core/core.hpp>
 
 namespace aslam {
 namespace cameras {
@@ -19,7 +21,7 @@ ImageMask::ImageMask(const sm::PropertyTree & config)
   // Note: if this fails, _mask.data == NULL.
   // http://opencv.willowgarage.com/documentation/cpp/reading_and_writing_images_and_video.html#cv-imread
   // \todo Better error handling.
-  _mask = cv::imread(maskFile, CV_LOAD_IMAGE_GRAYSCALE);
+  _mask = cv::imread(maskFile, cv::IMREAD_GRAYSCALE);
   //TODO: BB: How to implement scale here?
 }
 
